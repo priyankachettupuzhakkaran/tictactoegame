@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <style>
+        button{
+            width:50px;
+            height:50px;
+            position:static;
+        }
+        
+    </style>
+    </head>
+    <body>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+        <div id="result"></div>
+        <script>
+            var count=0
+            var buttons=document.getElementsByTagName('button')
+            console.log(buttons)
+            for(i=0;i<buttons.length;i++){
+                
+                buttons[i].addEventListener('click',clickhandler);
+                   function clickhandler(){
+                    if((count==0)||(count%2)==0){
+                        this.innerHTML='X'
+                        this.value=this.innerHTML
+                    }
+                    else{
+                        this.innerHTML='O'
+                        this.value=this.innerHTML
+                    }
+                    count=count+1
+                    //console.log(count)
+                    this.removeEventListener('click',clickhandler)
+                    //console.log(buttons[0].value)
+                    //console.log(buttons[1].value)
+                   // console.log(buttons[8].value=='')
+                    if((count>=5)){
+                       for(j=0;j<=6;j+=3) {
+                            if((buttons[j].value==buttons[j+1].value)&&(buttons[j].value==buttons[j+2].value)){
+                                
+                               
+                               
+                              
+                                if(buttons[j].value=='X'){
+                                   
+                                    
+                                    console.log('X won the game')
+                                    document.getElementById('result').innerHTML='X won the game'
+                                    debugger;
+                                    buttons[j].style.backgroundColor='green'
+                                buttons[j+1].style.backgroundColor='green'
+                                buttons[j+2].style.backgroundColor='green'
+                               //   
+                                break;
+                                    
+                                }
+                                else if(buttons[j].value=='O'){
+                                    
+                                    console.log('O won the game')
+                                    document.getElementById('result').innerHTML='O won the game'
+                                    buttons[j].style.backgroundColor='green'
+                                buttons[j+1].style.backgroundColor='green'
+                                buttons[j+2].style.backgroundColor='green'
+                                //buttons[i].disabled=true;  
+                                   break; 
+                                }
+                            }
+                            
+                        }
+                        for(k=0;k<=2;k++){
+                            if((buttons[k].value==buttons[k+3].value)&&(buttons[k].value==buttons[k+6].value)){
+                                //buttons[i].disabled=true
+                                
+                                if(buttons[k].value=='X'){
+                                    
+                                    console.log('X won the game')
+                                    document.getElementById('result').innerHTML='X won the game'
+                                    buttons[k].style.backgroundColor='green'
+                                buttons[k+3].style.backgroundColor='green'
+                                buttons[k+6].style.backgroundColor='green'
+                                //buttons[i].disabled=true;  
+                                 break;   
+                                }
+                                else if(buttons[k].value=='O'){
+                                   
+                                    console.log('O won the game')
+                                    document.getElementById('result').innerHTML='O won the game'
+                                    buttons[k].style.backgroundColor='green'
+                                buttons[k+3].style.backgroundColor='green'
+                                buttons[k+6].style.backgroundColor='green'
+                                buttons[i].disabled=true;  
+                                break;
+                                }
+                            }
+                        }
+                        if((buttons[0].value==buttons[4].value)&&(buttons[0].value==buttons[8].value)){
+                            //buttons[i].disabled=true;  
+                            //document.getElementsByTagName('button')=true
+                            buttons[0].style.backgroundColor='green'
+                                buttons[4].style.backgroundColor='green'
+                                buttons[8].style.backgroundColor='green'
+                            if(buttons[0].value=='X'){
+                                console.log('X won the game')
+                                document.getElementById('result').innerHTML='X won the game'
+                                
+                            }
+                            else if(buttons[0].value=='O'){
+                                console.log('O won the game')
+                                document.getElementById('result').innerHTML='O won the game'
+                            
+                            } 
+                        }
+                        if((buttons[2].value==buttons[4].value)&&(buttons[2].value==buttons[6].value)){
+                            //buttons[i].disabled=true;  
+                            //document.getElementsByTagName('button')=true
+                            buttons[2].style.backgroundColor='green'
+                                buttons[4].style.backgroundColor='green'
+                                buttons[6].style.backgroundColor='green'
+                            if(buttons[2].value=='X'){
+                                console.log('X won the game')
+                                document.getElementById('result').innerHTML='X won the game'
+                            }
+                            else if(buttons[2].value=='O'){
+                                console.log('O won the game')
+                                document.getElementById('result').innerHTML='O won the game'
+                            }
+                            for(z=0;z<buttons.length;z++){
+                        buttons[z].disabled=true;    
+                        }
+               
+                           
+            
+                    }
+                    
+                    }
+                     
+                }
+                
+             
+            }
+            
+        </script>
+    </body>
+    </html>
